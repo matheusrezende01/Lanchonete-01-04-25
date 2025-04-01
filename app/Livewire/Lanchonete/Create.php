@@ -15,6 +15,16 @@ class Create extends Component
     public $cpf;
     public $email;
     public $password;
+
+
+    protected $rules = [
+        'nome' => 'required|string|max:80',
+        'endereco' => 'required|string|max:60',
+        'telefone' => 'required|string|max:20',
+        'cpf' => 'required|cpf|unique:clientes,cpf',
+        'email' => 'required|email|unique:clientes,email',
+        'password' => 'required|min:6',
+    ];
     
     
     public function render()
@@ -25,6 +35,7 @@ class Create extends Component
 
 
     public function store(){
+
         Cliente::create([
         'nome' => $this->nome,
         'endereco' => $this->endereco,
