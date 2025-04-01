@@ -16,9 +16,9 @@ return new class extends Migration
             $table->foreignId('cliente_id')->constrained('clientes');
             $table->dateTime('data_hora')->nullable(false);
             $table->decimal('valor_total', 10, 2)->nullable(false);
-            $table->decimal('valor_com_desconto', 10, 2)->nullable();
-            $table->string('forma_pagamento', ['cartao_credito', 'cartao_debito', 'pix', 'dinheiro']);
-            $table->string('status', ['em_aberto', 'aguardando_preparo', 'em_preparo', 'em_rota', 'entregue']);
+            $table->decimal('valor_com_desconto', 10, 2)->nullable(false);
+            $table->enum('forma_pagamento', ['cartao_credito', 'cartao_debito', 'pix', 'dinheiro']);
+            $table->enum('status', ['em_aberto', 'aguardando_preparo', 'em_preparo', 'em_rota', 'entregue']);
             $table->timestamps();
         });
     }
