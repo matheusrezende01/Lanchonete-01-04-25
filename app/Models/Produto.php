@@ -13,4 +13,9 @@ class Produto extends Model
         'valor',
         'imagem' 
          ];
+
+         public function itensPedido(){
+            return $this->hasMany(ItemPedido::class);
+         }
+
 }
