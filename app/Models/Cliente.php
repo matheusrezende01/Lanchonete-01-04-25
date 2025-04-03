@@ -16,4 +16,8 @@ class Cliente extends Model
     'password' 
     
    ];
+   public function pedidos()
+   {
+       return $this->hasMany(Pedido::class);
+   }
 }
